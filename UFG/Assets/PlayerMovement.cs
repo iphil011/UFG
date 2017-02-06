@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public GameObject Hattack, Lattack, Sattack;
     public float speed;             //Floating point variable to store the player's movement speed.
     public float jumpforce;
     Transform myTrans, tagGround;
@@ -27,6 +27,23 @@ public class PlayerMovement : MonoBehaviour
             rb2d.velocity = jumpforce * Vector2.up;//jumping
         }
         }
+    public void HAttack() {
+        Instantiate(Hattack, transform.position, Quaternion.identity);
+        //attack.transform.localPosition = new Vector2(0.5f, 0);
+
+    }
+    public void LAttack()
+    {
+        Instantiate(Lattack, transform.position, Quaternion.identity);
+        //attack.transform.localPosition = new Vector2(0.5f, 0);
+
+    }
+    public void SAttack()
+    {
+        Instantiate(Sattack, transform.position, Quaternion.identity);
+        //attack.transform.localPosition = new Vector2(0.5f, 0);
+
+    }
 
 
     public void Move(float horizontalInput)//takes input
@@ -53,5 +70,18 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            HAttack();
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            LAttack();
+        }
+        if (Input.GetButtonDown("Fire3"))
+        {
+            SAttack();
+        }
+
     }
 }
