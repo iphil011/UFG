@@ -5,9 +5,10 @@ public class PlayerMovement : MonoBehaviour
 {
     Animator anim;
     int jumpHash = Animator.StringToHash("Jump");
-    public GameObject Hattack, Lattack, Sattack;
+    public GameObject Hattack, Lattack, Sattack, player2;
     public float speed;             //Floating point variable to store the player's movement speed.
     public float jumpforce;
+    public bool flipped = false;
     Transform myTrans, tagGround;
     public LayerMask playerMask;
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
@@ -69,10 +70,32 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    public void Flip()
+    {
+
+        if (flipped == false)
+        {
+            if (myTrans.position.x - player2.transform.position.x > 1)
+            {
+                myTrans.Rotate(new Vector2(0, 180));
+                flipped = true;
+            }
+        }
+        else if (flipped == true)
+        {
+            if (myTrans.position.x - player2.transform.position.x < 0)
+            {
+                myTrans.Rotate(new Vector2(0, 180));
+                flipped = false;
+            }
+        }
+    }
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate()
     {
 
+        Flip();
      
         isGround = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);//checks if hit ground
 
