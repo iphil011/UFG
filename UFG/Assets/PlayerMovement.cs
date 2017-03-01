@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Animator anim;
+    int jumpHash = Animator.StringToHash("Jump");
     public GameObject Hattack, Lattack, Sattack;
     public float speed;             //Floating point variable to store the player's movement speed.
     public float jumpforce;
@@ -17,16 +19,24 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         myTrans = GetComponent<Transform>();
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
+        anim = GetComponent<Animator>();
     }
 
 
     public void Jump()
     {
+
+        anim.SetFloat("Speed", Input.GetAxis("Vertical"));
         if (isGround)
         {
+           
             rb2d.velocity = jumpforce * Vector2.up;//jumping
+
+           
         }
         }
+
+
     public void HAttack() {
         Instantiate(Hattack, transform.position, Quaternion.identity);
         //attack.transform.localPosition = new Vector2(0.5f, 0);
@@ -63,12 +73,19 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
 
+     
         isGround = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);//checks if hit ground
 
         Move(Input.GetAxisRaw("Horizontal"));//moving
         if (Input.GetButtonDown("Jump"))//jumping
         {
+            anim.SetTrigger(jumpHash);
             Jump();
+           
+        }
+        else if (Input.GetButtonUp("Jump"))
+        {
+            anim.ResetTrigger(jumpHash);
         }
         if (Input.GetButtonDown("Fire1"))
         {
@@ -82,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SAttack();
         }
+        
 
     }
 }
