@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Animator anim;
     int jumpHash = Animator.StringToHash("Jump");
+    int lAHash = Animator.StringToHash("lAttack");
     public GameObject Hattack, Lattack, Sattack, player2;
     public float speed;             //Floating point variable to store the player's movement speed.
     public float jumpforce;
