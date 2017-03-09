@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     Animator anim;
     int jumpHash = Animator.StringToHash("Jump");
+	int MoveHash = Animator.StringToHash("Speed");
+
     int lAHash = Animator.StringToHash("lAttack");
     public GameObject Hattack, Lattack, Sattack, player2;
     public float speed;             //Floating point variable to store the player's movement speed.
@@ -66,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveVel = rb2d.velocity;
         moveVel.x = horizontalInput * speed;//moving
         rb2d.velocity = moveVel;
-
+		anim.SetFloat("Speed",moveVel.x);
 
 
 
