@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 	int MoveHash = Animator.StringToHash("Speed");
 
     int lAHash = Animator.StringToHash("lAttack");
-    public GameObject Hattack, Lattack, Sattack, player2;
+    public GameObject Me, Hattack, Lattack, Sattack, player2;
     public float speed;             //Floating point variable to store the player's movement speed.
     public float jumpforce;
     public bool flipped = false;
@@ -36,19 +36,21 @@ public class PlayerMovement : MonoBehaviour
            
             rb2d.velocity = jumpforce * Vector2.up;//jumping
 
-           
+
         }
-        }
+    }
 
 
     public void HAttack() {
         Instantiate(Hattack, transform.position, Quaternion.identity);
+        Hattack.layer = Me.layer;
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
     public void LAttack()
     {
         Instantiate(Lattack, transform.position, Quaternion.identity);
+        Lattack.layer = Me.layer;
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
@@ -56,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Instantiate(Sattack, transform.position, Quaternion.identity);
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-
+        Sattack.layer = Me.layer;
     }
 
 
@@ -106,12 +108,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))//jumping
         {
             anim.SetTrigger(jumpHash);
+
             Jump();
-           
+
         }
         else if (Input.GetButtonUp("Jump"))
         {
-            anim.ResetTrigger(jumpHash);
         }
         if (Input.GetButtonDown("Fire1"))
         {
@@ -125,7 +127,11 @@ public class PlayerMovement : MonoBehaviour
         {
             SAttack();
         }
-        
+        if (isGround)
+        {
+            anim.ResetTrigger(jumpHash);
 
+        }
+     
     }
 }

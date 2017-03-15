@@ -5,7 +5,7 @@ public class Player2Movement : MonoBehaviour
 {
     Animator anim;
     int jumpHash = Animator.StringToHash("Jump");
-    public GameObject Hattack, Lattack, Sattack, player2;
+    public GameObject Me, Hattack, Lattack, Sattack, player2;
     public float speed;             //Floating point variable to store the player's movement speed.
     public float jumpforce;
     public bool flipped = false;
@@ -40,18 +40,21 @@ public class Player2Movement : MonoBehaviour
 
     public void HAttack() {
         Instantiate(Hattack, transform.position, Quaternion.identity);
+        Hattack.layer = Me.layer;
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
     public void LAttack()
     {
         Instantiate(Lattack, transform.position, Quaternion.identity);
+        Lattack.layer = Me.layer;
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
     public void SAttack()
     {
         Instantiate(Sattack, transform.position, Quaternion.identity);
+        Sattack.layer = Me.layer;
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
@@ -104,6 +107,8 @@ public class Player2Movement : MonoBehaviour
         {
             anim.SetTrigger(jumpHash);
             Jump();
+
+
            
         }
         else if (Input.GetButtonUp("Jump1"))
