@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
     public void HAttack() {
         Instantiate(Hattack, transform.position, Quaternion.identity);
         Hattack.layer = Me.layer;
+		anim.SetBool ("HeavyAttack",true);
+
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
@@ -61,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
         Instantiate(Sattack, transform.position, Quaternion.identity);
         //attack.transform.localPosition = new Vector2(0.5f, 0);
         Sattack.layer = Me.layer;
+		anim.SetBool ("SAttack",true);
+
     }
 
 
@@ -121,6 +125,10 @@ public class PlayerMovement : MonoBehaviour
         {
             HAttack();
         }
+		if (Input.GetButtonUp ("Fire2")) {
+			anim.SetBool ("HeavyAttack",false);
+
+		}
         if (Input.GetButtonDown("Fire2"))
         {
             LAttack();
@@ -133,6 +141,11 @@ public class PlayerMovement : MonoBehaviour
         {
             SAttack();
         }
+		if (Input.GetButtonUp("Fire3")){
+			anim.SetBool ("SAttack",false);
+
+		
+		}
         if (isGround)
         {
             anim.ResetTrigger(jumpHash);
