@@ -1,0 +1,5 @@
+
+Needs improvements - Animations working sometimes.
+Can push players out of walls
+Get 2 health bars and make them work
+Jumping is floaty, add more weight
