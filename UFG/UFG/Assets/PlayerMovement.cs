@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Instantiate(Lattack, transform.position, Quaternion.identity);
         Lattack.layer = Me.layer;
+		anim.SetBool ("LightAttack",true);
+
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
@@ -123,6 +125,10 @@ public class PlayerMovement : MonoBehaviour
         {
             LAttack();
         }
+		if (Input.GetButtonUp ("Fire2")) {
+			anim.SetBool ("LightAttack",false);
+
+		}
         if (Input.GetButtonDown("Fire3"))
         {
             SAttack();

@@ -41,6 +41,7 @@ public class Player2Movement : MonoBehaviour
     public void HAttack() {
         Instantiate(Hattack, transform.position, Quaternion.identity);
         Hattack.layer = Me.layer;
+		anim.SetBool ("LightAttack",true);
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
