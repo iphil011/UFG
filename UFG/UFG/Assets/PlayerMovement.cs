@@ -113,43 +113,52 @@ public class PlayerMovement : MonoBehaviour
         Move(Input.GetAxisRaw("Horizontal"));//moving
         if (Input.GetButtonDown("Jump"))//jumping
         {
-            anim.SetTrigger(jumpHash);
-
+            if (isGround)
+            {
+                anim.SetTrigger(jumpHash);
+            }
             Jump();
 
         }
-        else if (Input.GetButtonUp("Jump"))
-        {
-        }
+       
         if (Input.GetButtonDown("Fire1"))
         {
+            anim.SetTrigger("HeavyAttack");
+
             HAttack();
         }
-		if (Input.GetButtonUp ("Fire2")) {
-			anim.SetBool ("HeavyAttack",false);
+		if (Input.GetButtonUp ("Fire1")) {
+            anim.ResetTrigger("HeavyAttack");
 
-		}
+        }
         if (Input.GetButtonDown("Fire2"))
         {
+            anim.SetTrigger("LightAttack");
+
             LAttack();
         }
 		if (Input.GetButtonUp ("Fire2")) {
-			anim.SetBool ("LightAttack",false);
+            anim.ResetTrigger("LightAttack");
 
-		}
+        }
         if (Input.GetButtonDown("Fire3"))
         {
+            anim.SetTrigger("SAttack");
+
             SAttack();
         }
 		if (Input.GetButtonUp("Fire3")){
-			anim.SetBool ("SAttack",false);
+            anim.ResetTrigger("SAttack");
 
 		
 		}
         if (isGround)
         {
-            anim.ResetTrigger(jumpHash);
+            if (Input.GetButtonUp("Jump"))
+            {
 
+                anim.ResetTrigger(jumpHash);
+            }
         }
      
     }
