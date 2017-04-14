@@ -4,7 +4,6 @@ using System.Collections;
 public class Player2Movement : MonoBehaviour
 {
     Animator anim;
-    int jumpHash = Animator.StringToHash("Jump");
     public GameObject Me, Hattack, Lattack, Sattack, player2;
     public float speed;             //Floating point variable to store the player's movement speed.
     public float jumpforce;
@@ -39,21 +38,58 @@ public class Player2Movement : MonoBehaviour
 
 
     public void HAttack() {
-        Instantiate(Hattack, transform.position, Quaternion.identity);
+        Vector3 vecpos = transform.position;
+        if (!flipped)
+        {
+            vecpos.x = vecpos.x + 0.4f;
+            vecpos.y = vecpos.y + 0.3f;
+        }
+        if (flipped == true)
+        {
+            vecpos.x = vecpos.x - 0.4f;
+            vecpos.y = vecpos.y + 0.3f;
+
+        }
+        Instantiate(Hattack, vecpos, Quaternion.identity);
         Hattack.layer = Me.layer;
+
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
     public void LAttack()
     {
-        Instantiate(Lattack, transform.position, Quaternion.identity);
+        Vector3 vecpos = transform.position;
+        if (!flipped)
+        {
+            vecpos.x = vecpos.x + 0.4f;
+            vecpos.y = vecpos.y + 0.2f;
+        }
+        if (flipped == true)
+        {
+            vecpos.x = vecpos.x - 0.4f;
+            vecpos.y = vecpos.y + 0.2f;
+        }
+            Instantiate(Lattack, vecpos, Quaternion.identity);
         Lattack.layer = Me.layer;
+
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
     }
     public void SAttack()
     {
-        Instantiate(Sattack, transform.position, Quaternion.identity);
+        Vector3 vecpos = transform.position;
+        if (!flipped)
+        {
+            vecpos.x = vecpos.x + 0.2f;
+            vecpos.y = vecpos.y + 0.2f;
+        }
+        if (flipped == true)
+        {
+            vecpos.x = vecpos.x - 0.2f;
+            vecpos.y = vecpos.y + 0.2f;
+
+        }
+        Instantiate(Sattack, vecpos, Quaternion.identity);
         Sattack.layer = Me.layer;
         //attack.transform.localPosition = new Vector2(0.5f, 0);
 
@@ -105,7 +141,7 @@ public class Player2Movement : MonoBehaviour
         Move(Input.GetAxisRaw("Horizontal1"));//moving
         if (Input.GetButtonDown("Jump1"))//jumping
         {
-            anim.SetTrigger(jumpHash);
+            anim.SetTrigger("Jump");
             Jump();
 
 
@@ -113,21 +149,42 @@ public class Player2Movement : MonoBehaviour
         }
         else if (Input.GetButtonUp("Jump1"))
         {
-            anim.ResetTrigger(jumpHash);
+            anim.ResetTrigger("Jump");
         }
         if (Input.GetButtonDown("Heavy"))
         {
+            anim.SetTrigger("HeavyAttack");
+
             HAttack();
+        }
+
+
+        if (Input.GetButtonUp("Heavy"))
+        {
+            anim.ResetTrigger("HeavyAttack");
+
         }
         if (Input.GetButtonDown("Light"))
         {
+            anim.SetTrigger("LightAttack");
+
             LAttack();
+        }
+        if (Input.GetButtonUp("Light"))
+        {
+            anim.ResetTrigger("LightAttack");
         }
         if (Input.GetButtonDown("Special"))
         {
+            anim.SetTrigger("SAttack");
             SAttack();
         }
-        
+        if (Input.GetButtonUp("Special"))
+        {
+            anim.ResetTrigger("SAttack");
+
+        }
+
 
     }
 }
