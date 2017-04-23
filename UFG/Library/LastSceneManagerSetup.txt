@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/StartScreen.unity
+- path: Assets/TestStage2.unity
   isLoaded: 1
   isActive: 1
