@@ -6,6 +6,8 @@ public class dummyHit : MonoBehaviour {
     public bool flipped = false;
     Transform myTrans;
     public GameObject player2;
+    public GameObject LeftEffect;
+    public GameObject RightEffect;
     // Use this for initialization
     void Start () {
         myTrans = GetComponent<Transform>();
@@ -41,12 +43,15 @@ public class dummyHit : MonoBehaviour {
         if (collision.gameObject.tag == "Attack1") {
             if (flipped ==true)
             {
-                Vector3 up = new Vector2(0.5f, 0.5f);
+                Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
+                Vector3 up = new Vector2(0.3f, 0.4f);
                 transform.position += up;
             }
             else if (flipped==false)
             {
-                Vector3 up = new Vector2(-0.5f, 0.5f);
+                Instantiate(RightEffect, myTrans.position, Quaternion.identity);
+
+                Vector3 up = new Vector2(-0.3f, 0.4f);
                 transform.position += up;
 
 
@@ -56,12 +61,15 @@ public class dummyHit : MonoBehaviour {
         {
             if (flipped == true)
             {
-                Vector3 up = new Vector2(0.2f, 0.2f);
+                Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
+                Vector3 up = new Vector2(0.4f, 0.1f);
                 transform.position += up;
             }
             else if (flipped == false)
             {
-                Vector3 up = new Vector2(-0.2f, 0.2f);
+                Instantiate(RightEffect, myTrans.position, Quaternion.identity);
+
+                Vector3 up = new Vector2(-0.4f, 0.1f);
                 transform.position += up;
             }
             }

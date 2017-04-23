@@ -53,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        Instantiate(Hattack, vecpos, Quaternion.identity);
+        GameObject hattack = Instantiate(Hattack, vecpos, Quaternion.identity);
+        hattack.transform.parent = gameObject.transform;
         Hattack.layer = Me.layer;
 
         //attack.transform.localPosition = new Vector2(0.5f, 0);
@@ -73,7 +74,8 @@ public class PlayerMovement : MonoBehaviour
             vecpos.y = vecpos.y + 0.2f;
 
         }
-        Instantiate(Lattack, vecpos, Quaternion.identity);
+        GameObject lattack = Instantiate(Lattack, vecpos, Quaternion.identity);
+        lattack.transform.parent = gameObject.transform;
         Lattack.layer = Me.layer;
 
         //attack.transform.localPosition = new Vector2(0.5f, 0);
