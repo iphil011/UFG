@@ -1234,7 +1234,7 @@
             </timeline>
             <timeline id="8" obj="8" name="bone_013" object_type="bone">
                 <key id="0" spin="0">
-                    <bone x="-4.068049" y="193.952341" angle="275.012842"/>
+                    <bone x="-4.068049" y="193.952341" angle="273.896523"/>
                 </key>
             </timeline>
             <timeline id="9" name="rightThigh">
@@ -3372,7 +3372,7 @@
             </timeline>
             <timeline id="32" name="Crack_000">
                 <key id="0" time="300" spin="0">
-                    <object folder="0" file="22" x="-528.571429" y="54.464286"/>
+                    <object folder="0" file="22" x="-528.571429" y="54.464286" angle="0"/>
                 </key>
             </timeline>
         </animation>
@@ -3850,64 +3850,64 @@
             </timeline>
             <timeline id="32" name="Crack">
                 <key id="0" time="200" spin="0">
-                    <object folder="0" file="22" x="-311" y="42" scale_x="0.667942" scale_y="0.667942"/>
+                    <object folder="0" file="22" x="-311" y="42" angle="0" scale_x="0.667942" scale_y="0.667942"/>
                 </key>
                 <key id="1" time="250" spin="0">
-                    <object folder="0" file="22" x="-311" y="42" scale_x="0.667942" scale_y="0.667942"/>
+                    <object folder="0" file="22" x="-311" y="42" angle="0" scale_x="0.667942" scale_y="0.667942"/>
                 </key>
             </timeline>
             <timeline id="33" name="saBladeTop">
                 <key id="0" time="200" spin="0">
-                    <object folder="0" file="23" x="-405" y="165"/>
+                    <object folder="0" file="23" x="-405" y="165" angle="0"/>
                 </key>
             </timeline>
             <timeline id="34" name="saBladeMid">
                 <key id="0" time="250" spin="0">
-                    <object folder="0" file="24" x="-418" y="298"/>
+                    <object folder="0" file="24" x="-418" y="298" angle="0"/>
                 </key>
             </timeline>
             <timeline id="35" name="saBladeTop_000">
                 <key id="0" time="250" spin="0">
-                    <object folder="0" file="23" x="-525" y="167"/>
+                    <object folder="0" file="23" x="-525" y="167" angle="0"/>
                 </key>
             </timeline>
             <timeline id="36" name="saBladeMid_000">
                 <key id="0" time="300" spin="0">
-                    <object folder="0" file="24" x="-540" y="299"/>
+                    <object folder="0" file="24" x="-540" y="299" angle="0"/>
                 </key>
             </timeline>
             <timeline id="37" name="saBlade_000">
                 <key id="0" time="300" spin="0">
-                    <object folder="0" file="25" x="-451" y="378"/>
+                    <object folder="0" file="25" x="-451" y="378" angle="0"/>
                 </key>
                 <key id="1" time="350" spin="0">
-                    <object folder="0" file="25" x="-451" y="378"/>
+                    <object folder="0" file="25" x="-451" y="378" angle="0"/>
                 </key>
                 <key id="2" time="400" spin="0">
-                    <object folder="0" file="25" x="-451" y="378"/>
+                    <object folder="0" file="25" x="-451" y="378" angle="0"/>
                 </key>
             </timeline>
             <timeline id="38" name="saBladeTop_002">
                 <key id="0" time="300" spin="0">
-                    <object folder="0" file="23" x="-651" y="166"/>
+                    <object folder="0" file="23" x="-651" y="166" angle="0"/>
                 </key>
             </timeline>
             <timeline id="39" name="saBlade_001">
                 <key id="0" time="350" spin="0">
-                    <object folder="0" file="25" x="-582" y="377"/>
+                    <object folder="0" file="25" x="-582" y="377" angle="0"/>
                 </key>
                 <key id="1" time="400" spin="0">
-                    <object folder="0" file="25" x="-582" y="377"/>
+                    <object folder="0" file="25" x="-582" y="377" angle="0"/>
                 </key>
             </timeline>
             <timeline id="40" name="saBladeMid_001">
                 <key id="0" time="350" spin="0">
-                    <object folder="0" file="24" x="-681" y="297"/>
+                    <object folder="0" file="24" x="-681" y="297" angle="0"/>
                 </key>
             </timeline>
             <timeline id="41" name="saBlade_002">
                 <key id="0" time="400" spin="0">
-                    <object folder="0" file="25" x="-718" y="376"/>
+                    <object folder="0" file="25" x="-718" y="376" angle="0"/>
                 </key>
             </timeline>
         </animation>
