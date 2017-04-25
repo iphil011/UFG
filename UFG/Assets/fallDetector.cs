@@ -10,6 +10,7 @@ public class fallDetector : MonoBehaviour
     public int player2Stock;
     public Vector2 p1Pos;
     public Vector2 p2Pos;
+	public static string winner;
 
     // Use this for initialization
     void Start()
@@ -37,6 +38,15 @@ public class fallDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (player1Stock == 0) {
+			Application.LoadLevel (6);
+			winner = "PLAYER 2";
+		}
 
-    }
+		if (player2Stock == 0) {
+
+			Application.LoadLevel (7);
+			winner = "PLAYER 1";
+		}
+	}
 }
