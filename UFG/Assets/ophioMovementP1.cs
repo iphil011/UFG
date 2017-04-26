@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player2Movement : MonoBehaviour
+public class ophioMovementP1 : MonoBehaviour
 {
     Animator anim;
+
+
     public GameObject Me, Hattack, Lattack, Sattack, player2;
     public float speed;             //Floating point variable to store the player's movement speed.
     public float jumpforce;
@@ -26,18 +28,20 @@ public class Player2Movement : MonoBehaviour
     public void Jump()
     {
 
-        anim.SetFloat("Speed", Input.GetAxis("Vertical1"));
+        anim.SetFloat("Speed", Input.GetAxis("Vertical"));
         if (isGround)
         {
-           
+
             rb2d.velocity = jumpforce * Vector2.up;//jumping
 
-           
+
         }
-        }
+    }
 
 
-    public void HAttack() {
+    public void HAttack()
+    {
+       /*
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
@@ -50,14 +54,17 @@ public class Player2Movement : MonoBehaviour
             vecpos.y = vecpos.y + 0.3f;
 
         }
-        Instantiate(Hattack, vecpos, Quaternion.identity);
+
+        GameObject hattack = Instantiate(Hattack, vecpos, Quaternion.identity);
+        hattack.transform.parent = gameObject.transform;
         Hattack.layer = Me.layer;
 
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-
+        */
     }
     public void LAttack()
     {
+        /*
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
@@ -68,15 +75,18 @@ public class Player2Movement : MonoBehaviour
         {
             vecpos.x = vecpos.x - 0.4f;
             vecpos.y = vecpos.y + 0.2f;
+
         }
-            Instantiate(Lattack, vecpos, Quaternion.identity);
+        GameObject lattack = Instantiate(Lattack, vecpos, Quaternion.identity);
+        lattack.transform.parent = gameObject.transform;
         Lattack.layer = Me.layer;
 
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-
+        */
     }
     public void SAttack()
     {
+        /*
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
@@ -90,9 +100,9 @@ public class Player2Movement : MonoBehaviour
 
         }
         Instantiate(Sattack, vecpos, Quaternion.identity);
-        Sattack.layer = Me.layer;
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-
+        Sattack.layer = Me.layer;
+        */
     }
 
 
@@ -108,7 +118,6 @@ public class Player2Movement : MonoBehaviour
 
 
 
-
     }
 
     public void Flip()
@@ -116,7 +125,7 @@ public class Player2Movement : MonoBehaviour
 
         if (flipped == false)
         {
-            if (myTrans.position.x - player2.transform.position.x > 1)
+            if (myTrans.position.x - player2.transform.position.x < 1)
             {
                 myTrans.Rotate(new Vector2(0, 180));
                 flipped = true;
@@ -124,7 +133,7 @@ public class Player2Movement : MonoBehaviour
         }
         else if (flipped == true)
         {
-            if (myTrans.position.x - player2.transform.position.x < 0)
+            if (myTrans.position.x - player2.transform.position.x > 1)
             {
                 myTrans.Rotate(new Vector2(0, 180));
                 flipped = false;
@@ -136,56 +145,62 @@ public class Player2Movement : MonoBehaviour
     {
 
         Flip();
-     
+
         isGround = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);//checks if hit ground
 
-        Move(Input.GetAxisRaw("Horizontal1"));//moving
-        if (Input.GetButtonDown("Jump1"))//jumping
+        Move(Input.GetAxisRaw("Horizontal"));//moving
+        if (Input.GetButtonDown("Jump"))//jumping
         {
-            anim.SetTrigger("Jump");
+            if (isGround)
+            {
+                anim.SetTrigger("Jump");
+            }
             Jump();
 
+        }
 
-           
-        }
-        else if (Input.GetButtonUp("Jump1"))
-        {
-            anim.ResetTrigger("Jump");
-        }
-        if (Input.GetButtonDown("Heavy"))
+        if (Input.GetButtonDown("Fire1"))
         {
             anim.SetTrigger("HeavyAttack");
 
             HAttack();
         }
-
-
-        if (Input.GetButtonUp("Heavy"))
+        if (Input.GetButtonUp("Fire1"))
         {
             anim.ResetTrigger("HeavyAttack");
 
         }
-        if (Input.GetButtonDown("Light"))
+        if (Input.GetButtonDown("Fire2"))
         {
             anim.SetTrigger("LightAttack");
 
             LAttack();
         }
-        if (Input.GetButtonUp("Light"))
+        if (Input.GetButtonUp("Fire2"))
         {
             anim.ResetTrigger("LightAttack");
+
         }
-        if (Input.GetButtonDown("Special"))
+        if (Input.GetButtonDown("Fire3"))
         {
             anim.SetTrigger("SAttack");
+
             SAttack();
         }
-        if (Input.GetButtonUp("Special"))
+        if (Input.GetButtonUp("Fire3"))
         {
             anim.ResetTrigger("SAttack");
 
-        }
 
+        }
+        if (isGround)
+        {
+            if (Input.GetButtonUp("Jump"))
+            {
+
+                anim.ResetTrigger("Jump");
+            }
+        }
 
     }
 }

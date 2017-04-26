@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player2Movement : MonoBehaviour
+public class ophioMovementP2 : MonoBehaviour
 {
     Animator anim;
     public GameObject Me, Hattack, Lattack, Sattack, player2;
@@ -29,15 +29,17 @@ public class Player2Movement : MonoBehaviour
         anim.SetFloat("Speed", Input.GetAxis("Vertical1"));
         if (isGround)
         {
-           
+
             rb2d.velocity = jumpforce * Vector2.up;//jumping
 
-           
+
         }
-        }
+    }
 
 
-    public void HAttack() {
+    public void HAttack()
+    {
+        /*
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
@@ -54,10 +56,11 @@ public class Player2Movement : MonoBehaviour
         Hattack.layer = Me.layer;
 
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-
+        */
     }
     public void LAttack()
     {
+        /*
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
@@ -69,14 +72,15 @@ public class Player2Movement : MonoBehaviour
             vecpos.x = vecpos.x - 0.4f;
             vecpos.y = vecpos.y + 0.2f;
         }
-            Instantiate(Lattack, vecpos, Quaternion.identity);
+        Instantiate(Lattack, vecpos, Quaternion.identity);
         Lattack.layer = Me.layer;
 
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-
+        */
     }
     public void SAttack()
     {
+        /*
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
@@ -92,7 +96,7 @@ public class Player2Movement : MonoBehaviour
         Instantiate(Sattack, vecpos, Quaternion.identity);
         Sattack.layer = Me.layer;
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-
+        */
     }
 
 
@@ -116,7 +120,7 @@ public class Player2Movement : MonoBehaviour
 
         if (flipped == false)
         {
-            if (myTrans.position.x - player2.transform.position.x > 1)
+            if (myTrans.position.x - player2.transform.position.x < 0)
             {
                 myTrans.Rotate(new Vector2(0, 180));
                 flipped = true;
@@ -124,7 +128,7 @@ public class Player2Movement : MonoBehaviour
         }
         else if (flipped == true)
         {
-            if (myTrans.position.x - player2.transform.position.x < 0)
+            if (myTrans.position.x - player2.transform.position.x > 1)
             {
                 myTrans.Rotate(new Vector2(0, 180));
                 flipped = false;
@@ -136,7 +140,7 @@ public class Player2Movement : MonoBehaviour
     {
 
         Flip();
-     
+
         isGround = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);//checks if hit ground
 
         Move(Input.GetAxisRaw("Horizontal1"));//moving
@@ -146,7 +150,7 @@ public class Player2Movement : MonoBehaviour
             Jump();
 
 
-           
+
         }
         else if (Input.GetButtonUp("Jump1"))
         {
