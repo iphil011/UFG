@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Player2Hit : MonoBehaviour
 {
+    Animator anim;
 
     public bool flipped = false;
     Transform myTrans;
+    public GameObject LeftEffect;
+    public GameObject RightEffect;
     public GameObject player2;
     // Use this for initialization
     void Start()
     {
         myTrans = GetComponent<Transform>();
-
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class Player2Hit : MonoBehaviour
         {
             if (myTrans.position.x - player2.transform.position.x > 1)
             {
+
                 flipped = true;
             }
         }
@@ -46,11 +50,17 @@ public class Player2Hit : MonoBehaviour
         {
             if (flipped == true)
             {
+                Instantiate(RightEffect, myTrans.position, Quaternion.identity);
+                anim.SetTrigger("Hit");
                 Vector3 up = new Vector2(0.5f, 0.5f);
                 transform.position += up;
             }
             else if (flipped == false)
             {
+                Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
+
+                anim.SetTrigger("Hit");
+
                 Vector3 up = new Vector2(-0.5f, 0.5f);
                 transform.position += up;
 
@@ -61,11 +71,16 @@ public class Player2Hit : MonoBehaviour
         {
             if (flipped == true)
             {
+                Instantiate(RightEffect, myTrans.position, Quaternion.identity);
+                anim.SetTrigger("Hit");
+
                 Vector3 up = new Vector2(0.2f, 0.2f);
                 transform.position += up;
             }
             else if (flipped == false)
             {
+                Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
+
                 Vector3 up = new Vector2(-0.2f, 0.2f);
                 transform.position += up;
             }
@@ -74,11 +89,18 @@ public class Player2Hit : MonoBehaviour
         {
             if (flipped == true)
             {
+                Instantiate(RightEffect, myTrans.position, Quaternion.identity);
+                anim.SetTrigger("Hit");
+
                 Vector3 up = new Vector2(1.5f, 1.5f);
                 transform.position += up;
             }
             else if (flipped == false)
             {
+                Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
+
+                anim.SetTrigger("Hit");
+
                 Vector3 up = new Vector2(-1.5f, 1.5f);
                 transform.position += up;
             }

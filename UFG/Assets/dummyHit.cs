@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class dummyHit : MonoBehaviour {
+    Animator anim;
+
     public bool flipped = false;
     Transform myTrans;
     public GameObject player2;
@@ -11,6 +13,7 @@ public class dummyHit : MonoBehaviour {
     // Use this for initialization
     void Start () {
         myTrans = GetComponent<Transform>();
+        anim = GetComponent<Animator>();
 
     }
 
@@ -44,12 +47,15 @@ public class dummyHit : MonoBehaviour {
             if (flipped ==true)
             {
                 Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
+                anim.SetTrigger("Hit");
+
                 Vector3 up = new Vector2(0.3f, 0.4f);
                 transform.position += up;
             }
             else if (flipped==false)
             {
                 Instantiate(RightEffect, myTrans.position, Quaternion.identity);
+                anim.SetTrigger("Hit");
 
                 Vector3 up = new Vector2(-0.3f, 0.4f);
                 transform.position += up;
@@ -62,12 +68,15 @@ public class dummyHit : MonoBehaviour {
             if (flipped == true)
             {
                 Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
+                anim.SetTrigger("Hit");
+
                 Vector3 up = new Vector2(0.4f, 0.1f);
                 transform.position += up;
             }
             else if (flipped == false)
             {
                 Instantiate(RightEffect, myTrans.position, Quaternion.identity);
+                anim.SetTrigger("Hit");
 
                 Vector3 up = new Vector2(-0.4f, 0.1f);
                 transform.position += up;
@@ -77,11 +86,15 @@ public class dummyHit : MonoBehaviour {
         {
             if (flipped == true)
             {
+                anim.SetTrigger("Hit");
+                Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
                 Vector3 up = new Vector2(1.5f, 1.5f);
                 transform.position += up;
             }
             else if (flipped == false)
             {
+                anim.SetTrigger("Hit");
+                Instantiate(RightEffect, myTrans.position, Quaternion.identity);
                 Vector3 up = new Vector2(-1.5f, 1.5f);
                 transform.position += up;
             }
