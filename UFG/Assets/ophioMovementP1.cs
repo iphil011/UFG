@@ -41,16 +41,16 @@ public class ophioMovementP1 : MonoBehaviour
 
     public void HAttack()
     {
-       /*
+       
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
-            vecpos.x = vecpos.x + 0.4f;
+            vecpos.x = vecpos.x - 0.4f;
             vecpos.y = vecpos.y + 0.3f;
         }
         if (flipped == true)
         {
-            vecpos.x = vecpos.x - 0.4f;
+            vecpos.x = vecpos.x + 0.4f;
             vecpos.y = vecpos.y + 0.3f;
 
         }
@@ -60,21 +60,21 @@ public class ophioMovementP1 : MonoBehaviour
         Hattack.layer = Me.layer;
 
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-        */
+        
     }
     public void LAttack()
     {
-        /*
+        
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
-            vecpos.x = vecpos.x + 0.4f;
-            vecpos.y = vecpos.y + 0.2f;
+            vecpos.x = vecpos.x - 0.5f;
+            vecpos.y = vecpos.y + 0.4f;
         }
         if (flipped == true)
         {
-            vecpos.x = vecpos.x - 0.4f;
-            vecpos.y = vecpos.y + 0.2f;
+            vecpos.x = vecpos.x + 0.5f;
+            vecpos.y = vecpos.y + 0.4f;
 
         }
         GameObject lattack = Instantiate(Lattack, vecpos, Quaternion.identity);
@@ -82,27 +82,27 @@ public class ophioMovementP1 : MonoBehaviour
         Lattack.layer = Me.layer;
 
         //attack.transform.localPosition = new Vector2(0.5f, 0);
-        */
+        
     }
     public void SAttack()
     {
-        /*
+        
         Vector3 vecpos = transform.position;
         if (!flipped)
         {
-            vecpos.x = vecpos.x + 0.2f;
+            vecpos.x = vecpos.x - 1.5f;
             vecpos.y = vecpos.y + 0.2f;
         }
         if (flipped == true)
         {
-            vecpos.x = vecpos.x - 0.2f;
+            vecpos.x = vecpos.x + 1.5f;
             vecpos.y = vecpos.y + 0.2f;
 
         }
-        Instantiate(Sattack, vecpos, Quaternion.identity);
-        //attack.transform.localPosition = new Vector2(0.5f, 0);
+        GameObject sattack = Instantiate(Sattack, vecpos, Quaternion.identity);
+        sattack.transform.parent = gameObject.transform;
         Sattack.layer = Me.layer;
-        */
+
     }
 
 

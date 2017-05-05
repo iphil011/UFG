@@ -70,7 +70,7 @@ public class dummyHit : MonoBehaviour {
                 Instantiate(LeftEffect, myTrans.position, Quaternion.identity);
                 anim.SetTrigger("Hit");
 
-                Vector3 up = new Vector2(0.4f, 0.1f);
+                Vector3 up = new Vector2(0.2f, 0.2f);
                 transform.position += up;
             }
             else if (flipped == false)
@@ -78,7 +78,7 @@ public class dummyHit : MonoBehaviour {
                 Instantiate(RightEffect, myTrans.position, Quaternion.identity);
                 anim.SetTrigger("Hit");
 
-                Vector3 up = new Vector2(-0.4f, 0.1f);
+                Vector3 up = new Vector2(-0.2f, 0.2f);
                 transform.position += up;
             }
             }
