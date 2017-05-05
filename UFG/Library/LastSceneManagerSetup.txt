@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/TestStage3.unity
+- path: Assets/WinScreen2.unity
   isLoaded: 1
   isActive: 1
